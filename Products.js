@@ -5,21 +5,21 @@ import ProductList from "./ProductList";
 
 
 const Products = () => {
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [nameState, setNameState] = useState("");
+  const [idState, setIdState] = useState("");
+  const [priceState, setPriceState] = useState("");
+  const [categoryState, setCategoryState] = useState("");
   const nameChangeHandler = (event) => {
-    setName(event.target.value);
+    setNameState(event.target.value);
   };
   const idChangeHandler = (event) => {
-    setId(event.target.value);
+    setIdState(event.target.value);
   };
   const priceChangeHandler = (event) => {
-    setPrice(event.target.value);
+    setPriceState(event.target.value);
   };
   const categoryChangeHandler = (event) => {
-    setCategory(event.target.value);
+    setCategoryState(event.target.value);
   };
   const submitHandler = (event) => {
     event.preventDefault();
@@ -27,7 +27,7 @@ const Products = () => {
     setProductList((prevList) => {
         return [
           ...prevList,
-          { name: name.value, price: price.value, id: id.value, category: category.value },
+          { name: nameState.value, price: priceState.value, id: idState.value, category: categoryState.value },
         ];
       });
   };
@@ -52,28 +52,28 @@ const Products = () => {
           type="number"
           label="Product Id"
           id="productId"
-          value={id.value}
+          value={idState.value}
           onChange={idChangeHandler}
         />
         <Input
           type="number"
           label="Selling Price"
           id="price"
-          value={price.value}
+          value={priceState.value}
           onChange={priceChangeHandler}
         />
         <Input
           type="text"
           label="Product Name"
           id="name"
-          value={name.value}
+          value={nameState.value}
           onChange={nameChangeHandler}
         />
         <label htmlFor="category">Category</label>
         <select
           name="category"
           id="category"
-          value={category.value}
+          value={categoryState.value}
           onChange={categoryChangeHandler}
         >
           <option value="electronics">Electronics</option>
@@ -84,11 +84,11 @@ const Products = () => {
       </form>
       <h4>Products</h4>
       <ProductList products={productList} deleteProduct={deleteProduct} />
-      <ul id="electronics">Electronics</ul>
+      {/* <ul id="electronics">Electronics</ul>
       
       <ul id="food">Food</ul>
 
-      <ul id="skincare">SkinCare</ul>
+      <ul id="skincare">SkinCare</ul> */}
     </div>
   );
 };
